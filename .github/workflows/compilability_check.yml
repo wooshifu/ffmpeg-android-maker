@@ -20,3 +20,11 @@ jobs:
           export ANDROID_SDK_HOME=$ANDROID_HOME
           export ANDROID_NDK_HOME=$ANDROID_NDK_LATEST_HOME
           ./ffmpeg-android-maker.sh -all-free -all-gpl -android=21 -abis=${{ matrix.abi }}
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-${{ matrix.abi }}
+          path: |
+            ${{runner.workspace}}/ffmpeg-android-maker/build/
+            ${{runner.workspace}}/ffmpeg-android-maker/output/
+          if-no-files-found: error

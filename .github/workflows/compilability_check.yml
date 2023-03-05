@@ -17,7 +17,7 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build -t ffmpeg_android:6.0 -f tools/docker/Dockerfile
+          docker build -t ffmpeg_android:6.0 -f tools/docker/Dockerfile .
 
       - name: Executing the script
         run: |
